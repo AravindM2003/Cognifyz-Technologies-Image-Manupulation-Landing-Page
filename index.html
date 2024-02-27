@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='script.js'></script>
+</head>
+<body>
+    <img src="landing page bg.jpg" width="100%" height="50%">
+    <div class="text">
+        <h2>Tizen</h2>
+        <h1>Mastering the Art of Image Manipulation</h1>
+        <p>Image manipulation is not just about altering pixels; it's about transforming perception and creating new realities</p>
+        <button>Get Started</button>
+        
+    </div>
+
+    <section id="img-gallery">   
+         <div class="row">
+        <h1>Thumbnail Enlargement: A Image Gallery Showcase</h1>
+        <p>In the world of art, details matter. Enlarging a thumbnail is like unlocking a treasure trove of intricacies.</p>
+        <div class="column">
+          <img src="book1.jpg"  style="width:100%" onclick="myFunction(this);">
+        </div>
+        <div class="column">
+          <img src="book2.jpg"  style="width:100%" onclick="myFunction(this);">
+        </div>
+        <div class="column">
+          <img src="book3.jpg"  style="width:100%" onclick="myFunction(this);">
+        </div>
+        <div class="column">
+          <img src="book4.jpg"  style="width:100%" onclick="myFunction(this);">
+        </div>
+      </div>
+      
+      <div class="container">
+        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+        <img id="expandedImg" style="width:100%">
+        <div id="imgtext"></div>
+      </div>
+    </section>
+<div class="content">
+  <h1>Dynamic Image Carousel: Seamless Transitions</h1>
+  <p>In the dance of life, let every image transition seamlessly, for each frame holds a story waiting to unfold</p>
+  
+</div>
+    <section id="image-slider">
+      
+      <div class="slider">
+       
+        <div class="list">
+            <div class="item">
+                <img src="slider-image1.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="slider-image2.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="slider-image3.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="slider-image4.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="slider-image5.jpg" alt="">
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="one" id="prev"><</button>
+            <button class="two" id="next">></button>
+        </div>
+  </div>
+  <script>
+    let slider = document.querySelector('.slider .list');
+  let items = document.querySelectorAll('.slider .list .item');
+  let next = document.getElementById('next');
+  let prev = document.getElementById('prev');
+  
+  let lengthItems = items.length - 1;
+  let active = 0;
+  next.onclick = function(){
+      active = active + 1 <= lengthItems ? active + 1 : 0;
+      reloadSlider();
+  }
+  prev.onclick = function(){
+      active = active - 1 >= 0 ? active - 1 : lengthItems;
+      reloadSlider();
+  }
+  let refreshInterval = setInterval(()=> {next.click()}, 3000);
+  function reloadSlider(){
+      slider.style.left = -items[active].offsetLeft + 'px';
+      clearInterval(refreshInterval);
+      refreshInterval = setInterval(()=> {next.click()}, 2000);
+  }
+  </script>
+    </section>
+
+    <footer> 
+      <div class="footer">
+        <div class="class">
+        <a href="https://cognifyz.com/"><i class="fa fa-facebook"></i></a>
+        <a href="https://cognifyz.com/"><i class="fa fa-instagram"></i></a>
+        <a href="https://cognifyz.com/"><i class="fa fa-youtube"></i></a>
+        <a href="https://cognifyz.com/"><i class="fa fa-twitter"></i></a>
+        </div>
+        
+        <div class="class">
+          2024 © All rights reserved by Tizen Technologies 
+        </div>
+        </div>
+    </footer>
+</body>
+</html>
